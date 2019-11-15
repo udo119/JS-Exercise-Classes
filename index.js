@@ -186,11 +186,30 @@ class Instructor extends Lambdasian{
 class Student extends Lambdasian{
   constructor(object){
     super(Lambdasian);
+    this.name = object.name;
+    this.listSubjects = object.listSubjects;
+    this.favSubjects = object.favSubjects;
     this.previousBackground = object.previousBackground;
     this.className = object.className;
     this.favSubjects = object.favSubjects;
   }
+  listSubjects(){
+    return `${this.favSubjects} Loving HTML, CSS, JS!`;
+  }
+  PRAssignment(subject){
+    return `${this.name} has submitted a PR for ${this.listSubjects}`;
+  }
+  speak(){
+    return `${this.name} can speak`;
+  }
 }
+
+const kidOne = new Student({
+  name: 'chris',
+  listSubjects: 'English',
+  favSubjects: 'PE'
+})
+
 
 /*
   TASK 6
@@ -205,8 +224,18 @@ class Student extends Lambdasian{
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class ProjectManager extends Instructor{
+  constructor(object){
+    super(object);
+    this.gradClassName = object.gradClassName;
+    this.favInstructor = object.favInstructor;
+  } 
+  standUp(){
+    return `${name} announces to `;
+  }
+  debugsCode(){
+    return `${this.name} debugs ${Student.name}'s code on ${Subject}`;
+  }
 }
 
 /*
