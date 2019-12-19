@@ -42,9 +42,9 @@ class Airplane {
 
 class Person {
   constructor(name, age) {
-    this.name = name,
-    this.age = age,
-    this.stomach = []
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
   }
 
 eat(someFood) {
@@ -55,7 +55,7 @@ eat(someFood) {
 }
 
 poop() {
-  this.stomach.length = 0;
+  this.stomach = [];
 }
 toString() {
   return `${this.name} is ${this.age}`;
@@ -63,13 +63,6 @@ toString() {
 }
 
 
-const human = new Person ({
-  name: 'udo',
-  age: 24,
-})
-
-//console.log (human.name());
-//console.log (human.age());
 
 /*
   TASK 2
@@ -108,9 +101,6 @@ class Car {
         this.tank = this.tank - (distance/this.milesPerGallon)
       }
     }
-  speak(){
-    console.log(`I ran out of fuel at ${this.odometer} miles!`);
-  }
 }
 
 /*
@@ -155,8 +145,8 @@ class Instructor extends Lambdasian{
   constructor(object){
     super(object);
     this.specialty = object.specialty;
-    this.favLanguage = object.specialty;
-    this.catchPhrase = object.specialty;
+    this.favLanguage = object.favLanguage;
+    this.catchPhrase = object.catchPhrase;
   }
   demo(subject){
     return `Today we are learning about ${subject}`;
@@ -185,30 +175,21 @@ class Instructor extends Lambdasian{
 */
 class Student extends Lambdasian{
   constructor(object){
-    super(Lambdasian);
-    this.name = object.name;
-    this.listSubjects = object.listSubjects;
-    this.favSubjects = object.favSubjects;
+    super(object);
     this.previousBackground = object.previousBackground;
     this.className = object.className;
     this.favSubjects = object.favSubjects;
   }
   listSubjects(){
-    return `${this.favSubjects} Loving HTML, CSS, JS!`;
+    return `Loving ${this.favSubjects}`;
   }
   PRAssignment(subject){
-    return `${this.name} has submitted a PR for ${this.listSubjects}`;
+    return `${this.name} has submitted a PR for ${subject}`;
   }
-  speak(){
-    return `${this.name} can speak`;
+  sprintChallenge(subject){
+    return `${this.name} has begun sprint challenge on ${subject}`;
   }
 }
-
-const kidOne = new Student({
-  name: 'chris',
-  listSubjects: 'English',
-  favSubjects: 'PE'
-})
 
 
 /*
@@ -229,13 +210,14 @@ class ProjectManager extends Instructor{
     super(object);
     this.gradClassName = object.gradClassName;
     this.favInstructor = object.favInstructor;
-  } 
-  standUp(){
-    return `${name} announces to `;
   }
-  debugsCode(){
-    return `${this.name} debugs ${Student.name}'s code on ${Subject}`;
+  standUp(slackChannel){
+    return `${this.name} announces to ${slackChannel}, @channel study times! `;
   }
+  debugsCode(Student, subject){
+    return `${this.name} debugs ${Student.name}'s code on ${subject}`;
+  }
+  
 }
 
 /*
